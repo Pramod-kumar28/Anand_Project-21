@@ -1,0 +1,748 @@
+import React, { useState } from 'react'
+import { useAnimation } from '../hooks/useAnimation'
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  })
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setShowSuccess(true)
+    setFormData({
+      fname: '',
+      lname: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    })
+    
+    setTimeout(() => {
+      setShowSuccess(false)
+    }, 5000)
+  }
+
+  useAnimation()
+  
+  const faqs = [
+    {
+      question: 'What types of projects does Anand Infra undertake?',
+      answer: 'We handle a wide spectrum of development including commercial complexes, residential townships, industrial structures, warehouses, layout development, public utilities, community infrastructure, and large-scale construction projects.'
+    },
+    {
+      question: 'Do you incorporate Vastu principles in your designs?',
+      answer: 'Yes, we integrate Vastu-aligned design principles in all our projects to ensure balance, harmony, and positive energy flow. We blend these ancient principles with modern scientific planning for optimal results.'
+    },
+    {
+      question: 'What is your approach to quality control?',
+      answer: 'We implement strict quality control measures at every stage of development. Our multi-stage inspection protocol ensures that every project meets our high standards for materials, workmanship, and safety before delivery.'
+    },
+    {
+      question: 'How long does a typical project take to complete?',
+      answer: 'Project timelines vary based on scope and complexity. A residential project might take 12-24 months, while large commercial or industrial developments can take 2-4 years. We provide detailed timelines during the consultation phase and pride ourselves on timely delivery.'
+    },
+    {
+      question: 'Do you offer post-construction support?',
+      answer: 'Absolutely. We provide comprehensive post-construction support and maintenance services. All our projects come with warranty coverage, and we offer ongoing maintenance contracts to ensure your infrastructure continues to perform optimally for years to come.'
+    }
+  ]
+
+  const [openFaq, setOpenFaq] = useState(null)
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index)
+  }
+
+  const contactCards = [
+    {
+      icon: 'map-marker-alt',
+      title: 'Visit Our Office',
+      content: 'Anand Infra Headquarters, Plot No. 45, Road No. 14, Jubilee Hills, Hyderabad, Telangana - 500033',
+      gradient: 'from-blue-500 to-cyan-500',
+      buttonText: 'Get Directions',
+      buttonIcon: 'directions'
+    },
+    {
+      icon: 'phone-alt',
+      title: 'Call Us Directly',
+      content: 'Speak with our project consultants for immediate assistance and project discussions',
+      gradient: 'from-green-500 to-emerald-500',
+      buttonText: 'Call Now',
+      buttonIcon: 'phone'
+    },
+    {
+      icon: 'envelope',
+      title: 'Email Us',
+      content: 'Send us your project requirements and we will get back to you with a detailed proposal',
+      gradient: 'from-amber-500 to-orange-500',
+      buttonText: 'Send Email',
+      buttonIcon: 'envelope'
+    },
+    {
+      icon: 'clock',
+      title: 'Office Hours',
+      content: 'Visit us during our business hours for face-to-face consultations and project discussions',
+      gradient: 'from-purple-500 to-pink-500',
+      buttonText: 'View Timings',
+      buttonIcon: 'calendar'
+    }
+  ]
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="contact-hero text-white py-16 md:py-32">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Start Your Legacy Project With Us</h1>
+          <p className="text-lg md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto px-4">
+            We are eager to hear about your vision and discuss how we can bring it to life.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
+
+            {/* Contact Information - Modern Card Style */}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Get In Touch</h2>
+              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">Multiple ways to connect with our team</p>
+              
+              <div className="space-y-4 md:space-y-6">
+                {contactCards.map((card, index) => (
+                  <div 
+                    key={index} 
+                    className="group relative bg-white rounded-xl md:rounded-2xl shadow-md md:shadow-lg border border-gray-100 p-4 md:p-6 hover:shadow-xl md:hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  >
+                    {/* Gradient Background Overlay on Hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                    
+                    <div className="relative z-10 flex items-start space-x-3 md:space-x-4">
+                      {/* Icon with Gradient */}
+                      <div className={`bg-gradient-to-r ${card.gradient} p-3 mt-2 md:p-4 rounded-lg md:rounded-xl shadow-md md:shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                        <i className={`fas fa-${card.icon} text-white text-base md:text-xl `}></i>
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2 group-hover:text-gray-900 transition-colors duration-300 truncate">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-600 mb-2 md:mb-4 leading-relaxed text-xs md:text-sm">
+                          {card.content}
+                        </p>
+                        
+                        {/* Contact Details */}
+                        <div className="text-gray-800 font-medium mb-3 md:mb-4 text-sm">
+                          {index === 0 && (
+                            <p className="text-xs md:text-sm">Plot No. 45, Road No. 14<br />Jubilee Hills, Hyderabad</p>
+                          )}
+                          {index === 1 && (
+                            <p className="text-xs md:text-sm">+91 98765 43210<br />+91 40 1234 5678</p>
+                          )}
+                          {index === 2 && (
+                            <p className="text-xs md:text-sm">info@anandinfra.com<br />projects@anandinfra.com</p>
+                          )}
+                          {index === 3 && (
+                            <p className="text-xs md:text-sm">Mon-Fri: 9:00 AM - 6:00 PM<br />Sat: 10:00 AM - 2:00 PM</p>
+                          )}
+                        </div>
+                        
+                        <button className={`bg-gradient-to-r ${card.gradient} hover:shadow-lg text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-1 md:space-x-2 text-xs md:text-sm w-full justify-center`}>
+                          <i className={`fas fa-${card.buttonIcon}`}></i>
+                          <span className="truncate">{card.buttonText}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg md:shadow-xl p-6 md:p-8 border border-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Send us a message</h2>
+              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">Fill out the form below and we'll get back to you within 24 hours</p>
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 gap-4 md:gap-6 mb-4 md:mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lname"
+                      name="lname"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                      placeholder="Your email"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-4 md:gap-6 mb-4 md:mb-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                      placeholder="Your phone number"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                      Subject *
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                      required
+                    >
+                      <option value="">Select a subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="residential">Residential Project</option>
+                      <option value="commercial">Commercial Project</option>
+                      <option value="industrial">Industrial Project</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="mb-6 md:mb-8">
+                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2 text-sm md:text-base">
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                    placeholder="Tell us about your project vision, requirements, and timeline..."
+                    required
+                  ></textarea>
+                </div>
+                
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-4 px-6 rounded-lg md:rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-sm md:text-base"
+                >
+                  <i className="fas fa-paper-plane mr-2"></i>
+                  Send Message
+                </button>
+              </form>
+
+              {/* Success Message */}
+              {showSuccess && (
+                <div className="mt-4 md:mt-6 p-3 md:p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg md:rounded-xl flex items-center text-sm">
+                  <i className="fas fa-check-circle text-green-500 mr-2 md:mr-3 text-lg"></i>
+                  <div>
+                    <p className="font-semibold">Message Sent Successfully!</p>
+                    <p className="text-xs md:text-sm">We'll get back to you within 24 hours.</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            
+          </div>
+
+          {/* Full Width Map Section */}
+          <div className="w-full">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl border border-gray-200 overflow-hidden">
+              
+              <iframe
+                title="Anand Infra Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.444210518734!2d78.40707837499777!3d17.42741180372425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91584b4e2d9b%3A0x7f52b4cb43b1e3c!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana%20500033!5e0!3m2!1sen!2sin!4v1698500000000!5m2!1sen!2sin"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-b-xl md:rounded-b-2xl"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-8 md:mb-12 px-4">
+            Find answers to common questions about our services and processes.
+          </p>
+          
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden mb-3 md:mb-4 group hover:shadow-xl transition-all duration-300">
+                <button
+                  className="w-full text-left p-4 md:p-6 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors duration-300"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 pr-4">
+                    {faq.question}
+                  </h3>
+                  <i className={`fas fa-chevron-${openFaq === index ? 'up' : 'down'} text-blue-500 text-base md:text-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}></i>
+                </button>
+                <div className={`px-4 md:px-6 pb-4 md:pb-6 transition-all duration-300 ${openFaq === index ? 'block animate-fadeIn' : 'hidden'}`}>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Contact
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// const Contact = () => {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     phone: '',
+//     projectType: '',
+//     message: ''
+//   })
+//   const [showSuccess, setShowSuccess] = useState(false)
+
+//   const handleChange = (e) => {
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value
+//     })
+//   }
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault()
+//     setShowSuccess(true)
+//     setFormData({
+//       name: '',
+//       email: '',
+//       phone: '',
+//       projectType: '',
+//       message: ''
+//     })
+    
+//     setTimeout(() => {
+//       setShowSuccess(false)
+//     }, 5000)
+//   }
+
+//   const contactInfo = [
+//     {
+//       icon: 'map-marker-alt',
+//       title: 'Studio Address',
+//       content: 'Film City Complex, Studio 7B, Mumbai, India 400053',
+//       link: '#'
+//     },
+//     {
+//       icon: 'phone',
+//       title: 'Phone',
+//       content: '+91 22 6128 4000',
+//       link: 'tel:+912261284000'
+//     },
+//     {
+//       icon: 'envelope',
+//       title: 'Email',
+//       content: 'projects@anandcinemaz.com',
+//       link: 'mailto:projects@anandcinemaz.com'
+//     },
+//     {
+//       icon: 'clock',
+//       title: 'Business Hours',
+//       content: 'Mon - Fri: 9:00 AM - 6:00 PM IST',
+//       link: '#'
+//     }
+//   ]
+
+//   const productionServices = [
+//     {
+//       icon: 'film',
+//       title: 'Film Production',
+//       description: 'Full-service feature film production from development to distribution'
+//     },
+//     {
+//       icon: 'video',
+//       title: 'Documentaries',
+//       description: 'Thought-provoking documentaries with social impact'
+//     },
+//     {
+//       icon: 'tv',
+//       title: 'Web Series',
+//       description: 'Digital content creation for streaming platforms'
+//     },
+//     {
+//       icon: 'users',
+//       title: 'Co-Productions',
+//       description: 'Collaborative projects with international partners'
+//     }
+//   ]
+
+//   const teamContacts = [
+//     {
+//       department: 'Project Development',
+//       email: 'development@anandcinemaz.com',
+//       responsibility: 'Script submissions & project proposals'
+//     },
+//     {
+//       department: 'Production',
+//       email: 'production@anandcinemaz.com',
+//       responsibility: 'On-set operations & crew management'
+//     },
+//     {
+//       department: 'Partnerships',
+//       email: 'partnerships@anandcinemaz.com',
+//       responsibility: 'Co-productions & distribution deals'
+//     },
+//     {
+//       department: 'Press & Media',
+//       email: 'press@anandcinemaz.com',
+//       responsibility: 'Media inquiries & publicity'
+//     }
+//   ]
+
+//   const faqs = [
+//     {
+//       question: 'What types of projects do you produce?',
+//       answer: 'We produce feature films, documentaries, and web series that combine meaningful storytelling with commercial appeal. Our focus is on projects with strong narratives and social relevance.'
+//     },
+//     {
+//       question: 'How can I submit a script?',
+//       answer: 'You can submit your project through our contact form. Please include a brief synopsis and your contact information. Our team reviews all submissions within 2-3 weeks.'
+//     },
+//     {
+//       question: 'Do you work with new filmmakers?',
+//       answer: 'Yes, we welcome collaborations with both established and emerging filmmakers. We value fresh perspectives and compelling stories above all else.'
+//     },
+//     {
+//       question: 'What is your production timeline?',
+//       answer: 'Timelines vary by project scope. Feature films typically take 12-18 months from development to completion, while shorter projects may take 3-6 months.'
+//     }
+//   ]
+
+//   const [openFaq, setOpenFaq] = useState(null)
+
+//   const toggleFaq = (index) => {
+//     setOpenFaq(openFaq === index ? null : index)
+//   }
+
+//   return (
+//     <div className="min-h-screen bg-white">
+//       {/* Hero Section with Background Image */}
+//       <section className="relative py-24 md:py-32 bg-gray-900">
+//         {/* Background Image with Overlay */}
+//         <div 
+//           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+//           style={{
+//             backgroundImage: 'url(https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbnRhY3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600)'
+//           }}
+//         >
+//           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+//         </div>
+        
+//         <div className="container mx-auto px-4 text-center relative z-10">
+//           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+//             Contact Us
+//           </h1>
+//           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+//             Let's create something extraordinary together. Get in touch with our production team.
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* Main Content */}
+//       <div className="container mx-auto px-4 py-16">
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+//           {/* Contact Form */}
+//           <div>
+//             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send us a message</h2>
+//             <form onSubmit={handleSubmit} className="space-y-6">
+//               <div>
+//                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+//                   Full Name *
+//                 </label>
+//                 <input
+//                   type="text"
+//                   id="name"
+//                   name="name"
+//                   value={formData.name}
+//                   onChange={handleChange}
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+//                   placeholder="Your name"
+//                   required
+//                 />
+//               </div>
+
+//               <div>
+//                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+//                   Email Address *
+//                 </label>
+//                 <input
+//                   type="email"
+//                   id="email"
+//                   name="email"
+//                   value={formData.email}
+//                   onChange={handleChange}
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+//                   placeholder="your.email@example.com"
+//                   required
+//                 />
+//               </div>
+
+//               <div>
+//                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+//                   Phone Number
+//                 </label>
+//                 <input
+//                   type="tel"
+//                   id="phone"
+//                   name="phone"
+//                   value={formData.phone}
+//                   onChange={handleChange}
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+//                   placeholder="+1 (555) 123-4567"
+//                 />
+//               </div>
+
+//               <div>
+//                 <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+//                   Project Type *
+//                 </label>
+//                 <select
+//                   id="projectType"
+//                   name="projectType"
+//                   value={formData.projectType}
+//                   onChange={handleChange}
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+//                   required
+//                 >
+//                   <option value="">Select project type</option>
+//                   <option value="feature-film">Feature Film</option>
+//                   <option value="documentary">Documentary</option>
+//                   <option value="web-series">Web Series</option>
+//                   <option value="short-film">Short Film</option>
+//                   <option value="other">Other</option>
+//                 </select>
+//               </div>
+
+//               <div>
+//                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+//                   Message *
+//                 </label>
+//                 <textarea
+//                   id="message"
+//                   name="message"
+//                   rows="6"
+//                   value={formData.message}
+//                   onChange={handleChange}
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-none"
+//                   placeholder="Tell us about your project..."
+//                   required
+//                 ></textarea>
+//               </div>
+
+//               <button
+//                 type="submit"
+//                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+//               >
+//                 Send Message
+//               </button>
+//             </form>
+
+//             {showSuccess && (
+//               <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+//                 <div className="flex items-center">
+//                   <div className="flex-shrink-0">
+//                     <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+//                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+//                     </svg>
+//                   </div>
+//                   <div className="ml-3">
+//                     <p className="text-sm font-medium text-green-800">
+//                       Thank you for your message. We'll get back to you soon.
+//                     </p>
+//                   </div>
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+
+//           {/* Contact Information & Additional Content */}
+//           <div>
+//             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Get in touch</h2>
+            
+//             <div className="space-y-6 mb-8">
+//               {contactInfo.map((item, index) => (
+//                 <div key={index} className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+//                   <div className="flex-shrink-0">
+//                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+//                       <i className={`fas fa-${item.icon} text-blue-600`}></i>
+//                     </div>
+//                   </div>
+//                   <div>
+//                     <h3 className="font-medium text-gray-900">{item.title}</h3>
+//                     <p className="text-gray-600 mt-1">{item.content}</p>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* Production Services Section */}
+//             <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+//               <h3 className="text-xl font-semibold text-gray-900 mb-4">Our Production Services</h3>
+//               <div className="grid grid-cols-1 gap-4">
+//                 {productionServices.map((service, index) => (
+//                   <div key={index} className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200">
+//                     <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+//                       <i className={`fas fa-${service.icon} text-blue-600 text-sm`}></i>
+//                     </div>
+//                     <div>
+//                       <h4 className="font-medium text-gray-900 text-sm">{service.title}</h4>
+//                       <p className="text-gray-600 text-xs">{service.description}</p>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Full Width Map Section */}
+//         <div className="mt-16 w-full">
+//           <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+//             <div className="p-6 border-b border-gray-200">
+//               <h3 className="text-xl font-semibold text-gray-900">Visit Our Studio</h3>
+//               <p className="text-gray-600 mt-1">Film City Complex, Studio 7B, Mumbai, India</p>
+//             </div>
+//             <div className="w-full">
+//               <iframe
+//                 title="Studio Location"
+//                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.444210518734!2d78.40707837499777!3d17.42741180372425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91584b4e2d9b%3A0x7f52b4cb43b1e3c!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana%20500033!5e0!3m2!1sen!2sin!4v1698500000000!5m2!1sen!2sin"
+//                 width="100%"
+//                 height="400"
+//                 style={{ border: 0 }}
+//                 allowFullScreen=""
+//                 loading="lazy"
+//                 referrerPolicy="no-referrer-when-downgrade"
+//               ></iframe>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* FAQ Section */}
+//         <div className="max-w-4xl mx-auto mt-20">
+//           <h2 className="text-3xl font-semibold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
+          
+//           <div className="space-y-4">
+//             {faqs.map((faq, index) => (
+//               <div key={index} className="border border-gray-200 rounded-lg">
+//                 <button
+//                   className="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+//                   onClick={() => toggleFaq(index)}
+//                 >
+//                   <h3 className="font-medium text-gray-900">{faq.question}</h3>
+//                   <svg 
+//                     className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} 
+//                     fill="none" 
+//                     viewBox="0 0 24 24" 
+//                     stroke="currentColor"
+//                   >
+//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                   </svg>
+//                 </button>
+//                 {openFaq === index && (
+//                   <div className="px-6 pb-6">
+//                     <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+//                   </div>
+//                 )}
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Contact
