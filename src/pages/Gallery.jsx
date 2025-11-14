@@ -318,10 +318,13 @@ const Gallery = () => {
                 <div className="p-6">
                   <span className={`inline-block bg-${
                     project.category === 'residential' ? 'blue' : 
+                    project.category === 'public' ? 'blue' :
                     project.category === 'commercial' ? 'amber' : 
                     project.category === 'industrial' ? 'green' : 'purple'
+                    
                   }-100 text-${
                     project.category === 'residential' ? 'blue' : 
+                    project.category === 'public' ? 'blue' :
                     project.category === 'commercial' ? 'amber' : 
                     project.category === 'industrial' ? 'green' : 'purple'
                   }-800 text-sm font-medium px-3 py-1 rounded-full mb-3`}>

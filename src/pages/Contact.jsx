@@ -96,7 +96,7 @@ const Contact = () => {
       icon: 'clock',
       title: 'Office Hours',
       content: 'Visit us during our business hours for face-to-face consultations and project discussions',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-purple-500 to-violet-500',
       buttonText: 'View Timings',
       buttonIcon: 'calendar'
     }

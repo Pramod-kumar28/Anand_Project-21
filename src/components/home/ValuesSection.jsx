@@ -4,7 +4,8 @@ const ValuesSection = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Our Core Values</h2>
-      <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
+      <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto"></div>
+      <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in mt-4">
         The principles that guide every project we undertake
       </p>
       

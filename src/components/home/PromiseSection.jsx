@@ -3,9 +3,10 @@ import React from 'react';
 const PromiseSection = () => (
   <section className="py-16 bg-gray-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 fade-in">The Anand Infra Difference</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 fade-in">The Anand Infra Difference</h2>
+      <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto"></div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
         {[
           { icon: 'flask', title: 'Scientific Planning', desc: 'Data-driven and technologically advanced project execution for optimal efficiency and sustainability.' },
           { icon: 'award', title: 'Uncompromising Quality', desc: 'Rigorous, multi-stage quality control protocols that leave no room for error.' },
