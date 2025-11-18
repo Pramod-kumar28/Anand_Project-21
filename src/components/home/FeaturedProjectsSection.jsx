@@ -51,7 +51,7 @@ const FeaturedProjectsSection = () => (
       </div>
       
       <div className="text-center mt-12">
-        <Link to="/projects" className="bg-navy-blue hover:bg-blue-800 text-white text-lg font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
+        <Link to="/projects" className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
           View All Projects
         </Link>
       </div>

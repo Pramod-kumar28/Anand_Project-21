@@ -43,7 +43,7 @@ body {
 /* Hero Slider Styles */
 .hero-slider {
     position: relative;
-    height: 70vh;
+    height: 75vh;
     overflow: hidden;
 }
 
@@ -298,12 +298,14 @@ body {
     background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
+    height: 70vh;
 }
 
 .contact-hero {
     background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
+    height: 70vh;
 }
 
 @media (max-width: 768px) {
@@ -311,8 +313,8 @@ body {
         height: 100vh;
     }
     .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
     }
 }
 
@@ -321,11 +323,13 @@ body {
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: rgb(102, 146, 223) rgb(243 244 246);
+    scrollbar-color: rgb(102, 146, 223) rgb(243 244 246)
   }
   
   .scrollbar-thin::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
   }
   
   .scrollbar-thin::-webkit-scrollbar-track {

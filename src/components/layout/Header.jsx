@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center sm:mr-0">
             {/* Founder Logo - Rounded for both desktop and mobile */}
             <div className="h-14 w-14 rounded-full shadow-lg overflow-hidden mr-3">
               <img 
@@ -31,10 +31,11 @@ const Header = () => {
               />
             </div>
             
-            <Link to="/" className="text-xl font-bold hover:opacity-90 transition-opacity duration-300">
-              <div className='mt-0'>
-                <span className='block p-0 m-0'><span className='text-amber-500'>ANAND</span> INFRA</span>
-                <p className='text-xs italic text-gray-700 -mt-0.5'>"Dharmo Rakshati Rakshitah"</p>
+            <Link to="/" className=" hover:opacity-90 transition-opacity duration-300">
+              
+              <div>
+                <h2 className="text-xl font-bold"><span className='text-amber-500'>ANAND</span> INFRA</h2>
+                <p className="text-gray-500 text-[10px] italic -mt-0.5">"Dharmo Rakshati Rakshitah"</p>
               </div>
             </Link>
           </div>

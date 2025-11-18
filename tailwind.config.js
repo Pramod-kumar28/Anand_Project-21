@@ -12,7 +12,7 @@ export default {
         'navy-text': '#1e3a5f',
         'text-Orange': '#FFA500',
         'pink': '#FFC0CB',
-        'purple': '#800080',
+        purple: '#800080',
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
