@@ -1156,7 +1156,7 @@ const About = () => {
             <img
               src="./images/CEO.png"
               alt="Founder"
-              className="w-full h-64 sm:h-80 md:h-[480px] object-fit object-cover md:object-top"
+              className="w-full lg:h-[550px] sm:h-full md:h-[480px] object-fit object-cover md:object-top sm:object-top lg:object-fit"
               style={{ borderRadius: 12 }}
             />
 
