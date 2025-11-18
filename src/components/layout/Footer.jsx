@@ -187,7 +187,7 @@ const Footer = () => {
                 </div>
                 
               </div>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300 mb-6 text-sm">
                 Creating infrastructure that endures for generations—strong, precise, and timeless.
               </p>
               <div className="flex space-x-4">
