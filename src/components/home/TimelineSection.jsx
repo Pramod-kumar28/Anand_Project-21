@@ -3,8 +3,7 @@ import React from 'react';
 const TimelineSection = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Our Project Journey</h2>
-      <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto mb-7"></div>
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Our Project Journey</h2>
       <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
         From concept to completion, we follow a meticulous process
       </p>
@@ -18,7 +17,7 @@ const TimelineSection = () => (
               { title: 'Approvals & Permits', desc: 'We handle all necessary regulatory approvals and permits, ensuring compliance with local building codes and regulations.' }
             ].map((item, index) => (
               <div key={index} className="timeline-item fade-in">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -30,7 +29,7 @@ const TimelineSection = () => (
               { title: 'Handover & Support', desc: 'We deliver your completed project with comprehensive documentation and provide ongoing support for maintenance.' }
             ].map((item, index) => (
               <div key={index} className="timeline-item fade-in">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}

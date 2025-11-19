@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const FeaturedProjectsSection = () => (
   <section className="py-16 bg-gray-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Featured Projects</h2>
-      <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto mb-8"></div>
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Featured Projects</h2>
       <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
         A glimpse of our recent work that showcases our commitment to excellence
       </p>
@@ -40,7 +39,7 @@ const FeaturedProjectsSection = () => (
               <span className={`inline-block bg-${project.categoryColor}-100 text-${project.categoryColor}-800 text-sm font-medium px-3 py-1 rounded-full mb-3`}>
                 {project.category}
               </span>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">{project.title}</h3>
               <p className="text-gray-600 mb-4">{project.desc}</p>
               <Link to="/projects" className="text-navy-blue font-semibold hover:underline flex items-center">
                 View Project <i className="fas fa-arrow-right ml-2"></i>
@@ -51,7 +50,7 @@ const FeaturedProjectsSection = () => (
       </div>
       
       <div className="text-center mt-12">
-        <Link to="/projects" className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
+        <Link to="/projects" className="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
           View All Projects
         </Link>
       </div>

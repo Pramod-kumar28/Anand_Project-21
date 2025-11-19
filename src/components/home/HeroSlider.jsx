@@ -10,7 +10,7 @@ const HeroSlider = ({ slides, currentSlide, goToSlide }) => (
         style={{ backgroundImage: `url(${slide.background})` }}
       >
         <div className="slide-content">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 fade-in">{slide.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 fade-in">{slide.title}</h1>
           <p className="text-xl md:text-2xl mb-10 fade-in">{slide.subtitle}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             {slide.buttons.map((button, btnIndex) => (

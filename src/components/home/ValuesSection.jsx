@@ -1,10 +1,9 @@
 import React from 'react';
 
 const ValuesSection = () => (
-  <section className="py-16 bg-white">
+  <section className="py-16 bg-gradient-to-r from-cyan-50 to-blue-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Our Core Values</h2>
-      <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto"></div>
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Our Core Values</h2>
       <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in mt-4">
         The principles that guide every project we undertake
       </p>
@@ -22,7 +21,7 @@ const ValuesSection = () => (
             <div className="absolute inset-0 bg-navy-blue transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
             
             <div className="relative z-10">
-              <div className="bg-amber-500 group-hover:bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 pulse-slow transition-colors duration-500">
+              <div className="bg-cyan-500 group-hover:bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 pulse-slow transition-colors duration-500">
                 <i className={`fas fa-${value.icon} text-white group-hover:text-navy-blue text-3xl transition-colors duration-500`}></i>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 group-hover:text-white mb-4 transition-colors duration-500">{value.title}</h3>

@@ -8,7 +8,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path
 
   return (
-    <header className="bg-white text-navy-blue sticky top-0 z-50 shadow-lg">  
+    <header className="bg-white text-blue-500 sticky top-0 z-50 shadow-lg">  
       <div className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -34,8 +34,8 @@ const Header = () => {
             <Link to="/" className=" hover:opacity-90 transition-opacity duration-300">
               
               <div>
-                <h2 className="text-xl font-bold"><span className='text-amber-500'>ANAND</span> INFRA</h2>
-                <p className="text-gray-500 text-[10px] italic -mt-0.5">"Dharmo Rakshati Rakshitah"</p>
+                <h2 className="text-xl font-bold font-12"><span className='text-amber-500'>ANAND</span> INFRA</h2>
+                <p className="text-gray-500 text-[10px] italic -mt-0.5 ">"Dharmo Rakshati Rakshitah"</p>
               </div>
             </Link>
           </div>
@@ -46,8 +46,8 @@ const Header = () => {
               to="/" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-blue-700 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
               Home
@@ -56,8 +56,8 @@ const Header = () => {
               to="/about" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/about') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-blue-700 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
               About
@@ -66,8 +66,8 @@ const Header = () => {
               to="/projects" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/projects') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
               Projects
@@ -76,8 +76,8 @@ const Header = () => {
               to="/contact" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/contact') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
               Contact
@@ -102,8 +102,8 @@ const Header = () => {
               to="/" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -113,8 +113,8 @@ const Header = () => {
               to="/about" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/about') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -124,8 +124,8 @@ const Header = () => {
               to="/projects" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/projects') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -135,8 +135,8 @@ const Header = () => {
               to="/contact" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/contact') 
-                  ? 'text-navy-blue-300 bg-amber-500 bg-opacity-10' 
-                  : 'hover:text-amber-300 hover:bg-white hover:bg-opacity-5'
+                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >

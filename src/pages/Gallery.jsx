@@ -252,8 +252,8 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="gallery-hero bg-light-navy text-white py-24 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio of Excellence</h1>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">Our Portfolio of Excellence</h1>
+          <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
             Discover how we transform visions into enduring structures across diverse sectors
           </p>
         </div>
@@ -330,10 +330,10 @@ const Gallery = () => {
                   }-800 text-sm font-medium px-3 py-1 rounded-full mb-3`}>
                     {project.categoryName}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-blue-800 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
                   <button 
-                    className="text-navy-blue font-semibold hover:underline flex items-center group-hover:text-blue-700 transition-colors duration-300"
+                    className="font-semibold flex items-center transition-colors duration-300 text-cyan-800 bg-cyan-200 hover:bg-cyan-500 hover:text-white py-2 px-4 rounded-lg"
                     onClick={() => openProjectModal(project)}
                   >
                     View Details <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
@@ -360,7 +360,7 @@ const Gallery = () => {
           <div className="bg-white rounded-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">{selectedProject.title}</h2>
+                <h2 className="text-2xl font-bold text-blue-800">{selectedProject.title}</h2>
                 <button 
                   className="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
                   onClick={closeProjectModal}

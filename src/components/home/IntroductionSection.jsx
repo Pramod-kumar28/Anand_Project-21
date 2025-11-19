@@ -4,9 +4,9 @@ const IntroductionSection = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 fade-in">Welcome to Anand Infra</h2>
-        <div className="w-20 md:w-24 h-1 bg-amber-500 mx-auto"></div>
-        <p className="text-lg text-gray-600 fade-in mt-3">
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4 fade-in">Welcome to Anand Infra</h2>
+        
+        <p className="text-base text-gray-600 fade-in mt-3">
           We are dedicated creators of enduring infrastructure, blending scientific planning with timeless design. 
           From visionary townships to robust industrial complexes and public infrastructure projects, 
           we build with a commitment to quality, harmony, and a future-ready approach.
@@ -24,7 +24,7 @@ const IntroductionSection = () => (
             <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 floating">
               <i className={`fas fa-${item.icon} text-amber-600 text-2xl`}></i>
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
             <p className="text-gray-600">{item.desc}</p>
           </div>
         ))}

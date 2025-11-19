@@ -101,7 +101,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="contact-hero text-white py-16 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Start Your Legacy Project With Us</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Start Your Legacy Project With Us</h1>
           <p className="text-lg md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto px-4">
             We are eager to hear about your vision and discuss how we can bring it to life.
           </p>
@@ -115,7 +115,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div>
               <div className='mb-3'>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Get In Touch</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Get In Touch</h2>
                 <p className="text-gray-600 text-sm md:text-base">Multiple ways to connect with our team</p>
               </div>
               
@@ -157,7 +157,7 @@ const Contact = () => {
             
             <div>
               <div className='mb-3'>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Send us a message</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Send us a message</h2>
                 <p className="text-gray-600 text-sm md:text-base">Fill out the form below and we'll get back to you within 24 hours</p>
               </div>
               {/* Contact Form - Right Side */}
@@ -299,36 +299,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-8 md:mb-12 px-4">
-            Find answers to common questions about our services and processes.
-          </p>
-          
-          <div className="max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden mb-3 md:mb-4 group hover:shadow-xl transition-all duration-300">
-                <button
-                  className="w-full text-left p-4 md:p-6 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors duration-300"
-                  onClick={() => toggleFaq(index)}
-                >
-                  <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 pr-4">
-                    {faq.question}
-                  </h3>
-                  <i className={`fas fa-chevron-${openFaq === index ? 'up' : 'down'} text-blue-500 text-base md:text-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}></i>
-                </button>
-                <div className={`px-4 md:px-6 pb-4 md:pb-6 transition-all duration-300 ${openFaq === index ? 'block animate-fadeIn' : 'hidden'}`}>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">{faq.answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }
