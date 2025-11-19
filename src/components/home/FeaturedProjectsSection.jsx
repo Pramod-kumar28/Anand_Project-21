@@ -41,7 +41,7 @@ const FeaturedProjectsSection = () => (
               </span>
               <h3 className="text-lg font-bold text-gray-800 mb-2">{project.title}</h3>
               <p className="text-gray-600 mb-4">{project.desc}</p>
-              <Link to="/projects" className="text-navy-blue font-semibold hover:underline flex items-center">
+              <Link to="/projects" className="text-navy-blue font-semibold flex items-center">
                 View Project <i className="fas fa-arrow-right ml-2"></i>
               </Link>
             </div>
@@ -50,7 +50,7 @@ const FeaturedProjectsSection = () => (
       </div>
       
       <div className="text-center mt-12">
-        <Link to="/projects" className="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
+        <Link to="/projects" className="bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
           View All Projects
         </Link>
       </div>

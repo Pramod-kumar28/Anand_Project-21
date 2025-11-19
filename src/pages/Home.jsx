@@ -1248,6 +1248,165 @@
 
 
   
+// import React, { useState, useEffect, useRef } from 'react';
+// import HeroSlider from '../components/home/HeroSlider';
+// import IntroductionSection from '../components/home/IntroductionSection';
+// import ValuesSection from '../components/home/ValuesSection';
+// import PromiseSection from '../components/home/PromiseSection';
+// import TimelineSection from '../components/home/TimelineSection';
+// import FeaturedProjectsSection from '../components/home/FeaturedProjectsSection';
+// import TrustedPartnersSection from '../components/home/TrustedPartnersSection';
+// import SustainabilitySection from '../components/home/SustainabilitySection';
+// import ParallaxSection from '../components/home/ParallaxSection';
+// import TestimonialsSection from '../components/home/TestimonialsSection';
+// import CTASection from '../components/home/CTASection';
+
+// const Home = () => {
+//   const [currentSlide, setCurrentSlide] = useState(0);
+//   const slideIntervalRef = useRef(null);
+
+//   const slides = [
+//     {
+//       id: 1,
+//       background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+//       title: 'Where Vision Meets Reality',
+//       subtitle: 'Transforming dreams into enduring structures that stand as testaments to innovation and excellence',
+//       buttons: [
+//         { text: 'Explore Our Work', link: '/projects', type: 'primary' },
+//         { text: 'Begin Your Journey', link: '/contact', type: 'secondary' }
+//       ]
+//     },
+//     {
+//       id: 2,
+//       background: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+//       title: 'Architecting Tomorrow',
+//       subtitle: 'Where cutting-edge engineering embraces timeless Vastu principles for spaces that inspire and prosper',
+//       buttons: [
+//         { text: 'Our Methodology', link: '/about', type: 'primary' },
+//         { text: 'View Masterpieces', link: '/projects', type: 'secondary' }
+//       ]
+//     },
+//     {
+//       id: 3,
+//       background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+//       title: 'Excellence in Every Foundation',
+//       subtitle: 'Crafting sustainable ecosystems that nurture communities and honor our planet for generations ahead',
+//       buttons: [
+//         { text: 'Start Your Project', link: '/contact', type: 'primary' },
+//         { text: 'Our Philosophy', link: '/about', type: 'secondary' }
+//       ]
+//     }
+//   ];
+
+//   // Hero slider functionality
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCurrentSlide((prev) => (prev + 1) % slides.length);
+//     }, 4000);
+    
+//     slideIntervalRef.current = interval;
+    
+//     return () => clearInterval(interval);
+//   }, [slides.length]);
+
+//   const goToSlide = (index) => {
+//     clearInterval(slideIntervalRef.current);
+//     setCurrentSlide(index);
+    
+//     // Restart interval
+//     slideIntervalRef.current = setInterval(() => {
+//       setCurrentSlide((prev) => (prev + 1) % slides.length);
+//     }, 5000);
+//   };
+
+//   // Counter animation and scroll effects
+//   useEffect(() => {
+//     const animateCounters = () => {
+//       const counters = document.querySelectorAll('.counter');
+//       counters.forEach(counter => {
+//         const target = parseInt(counter.getAttribute('data-count'));
+//         const suffix = counter.textContent.includes('Million') ? 'M+' : '+';
+//         let count = 0;
+//         const duration = 2000;
+//         const increment = target / (duration / 16);
+        
+//         const updateCount = () => {
+//           if (count < target) {
+//             count += increment;
+//             counter.textContent = Math.floor(count) + (suffix && count >= target ? suffix : '');
+//             setTimeout(updateCount, 16);
+//           } else {
+//             counter.textContent = target + (suffix ? suffix : '');
+//           }
+//         };
+        
+//         updateCount();
+//       });
+//     };
+
+//     // Fade in on scroll
+//     const checkFadeIn = () => {
+//       const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .zoom-in');
+//       fadeElements.forEach(element => {
+//         const elementTop = element.getBoundingClientRect().top;
+//         const elementVisible = 150;
+        
+//         if (elementTop < window.innerHeight - elementVisible) {
+//           element.classList.add('visible');
+//         }
+//       });
+//     };
+
+//     // Initialize animations
+//     animateCounters();
+//     checkFadeIn();
+//     window.addEventListener('scroll', checkFadeIn);
+
+//     return () => {
+//       window.removeEventListener('scroll', checkFadeIn);
+//     };
+//   }, []);
+
+//   return (
+//     <div className="App">
+//       <HeroSlider 
+//         slides={slides} 
+//         currentSlide={currentSlide} 
+//         goToSlide={goToSlide} 
+//       />
+//       <IntroductionSection />
+//       <ValuesSection />
+//       <PromiseSection />
+//       <TimelineSection />
+//       <FeaturedProjectsSection />
+//       <TrustedPartnersSection />
+//       <SustainabilitySection />
+//       <ParallaxSection />
+//       <TestimonialsSection />
+//       <CTASection />
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import HeroSlider from '../components/home/HeroSlider';
 import IntroductionSection from '../components/home/IntroductionSection';
@@ -1262,65 +1421,14 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
 
 const Home = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideIntervalRef = useRef(null);
-
-  const slides = [
-    {
-      id: 1,
-      background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-      title: 'Where Vision Meets Reality',
-      subtitle: 'Transforming dreams into enduring structures that stand as testaments to innovation and excellence',
-      buttons: [
-        { text: 'Explore Our Work', link: '/projects', type: 'primary' },
-        { text: 'Begin Your Journey', link: '/contact', type: 'secondary' }
-      ]
-    },
-    {
-      id: 2,
-      background: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-      title: 'Architecting Tomorrow',
-      subtitle: 'Where cutting-edge engineering embraces timeless Vastu principles for spaces that inspire and prosper',
-      buttons: [
-        { text: 'Our Methodology', link: '/about', type: 'primary' },
-        { text: 'View Masterpieces', link: '/projects', type: 'secondary' }
-      ]
-    },
-    {
-      id: 3,
-      background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-      title: 'Excellence in Every Foundation',
-      subtitle: 'Crafting sustainable ecosystems that nurture communities and honor our planet for generations ahead',
-      buttons: [
-        { text: 'Start Your Project', link: '/contact', type: 'primary' },
-        { text: 'Our Philosophy', link: '/about', type: 'secondary' }
-      ]
-    }
-  ];
-
-  // Hero slider functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
-    
-    slideIntervalRef.current = interval;
-    
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const goToSlide = (index) => {
-    clearInterval(slideIntervalRef.current);
-    setCurrentSlide(index);
-    
-    // Restart interval
-    slideIntervalRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-  };
+  // Remove the old slider state and functionality since HeroSlider now manages its own state
+  const [mounted, setMounted] = useState(false);
 
   // Counter animation and scroll effects
   useEffect(() => {
+    // Set mounted to true after component mounts
+    setMounted(true);
+
     const animateCounters = () => {
       const counters = document.querySelectorAll('.counter');
       counters.forEach(counter => {
@@ -1357,35 +1465,156 @@ const Home = () => {
       });
     };
 
-    // Initialize animations
-    animateCounters();
-    checkFadeIn();
+    // Initialize animations with a slight delay to ensure HeroSlider is fully loaded
+    const timer = setTimeout(() => {
+      animateCounters();
+      checkFadeIn();
+    }, 100);
+
     window.addEventListener('scroll', checkFadeIn);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scroll', checkFadeIn);
     };
   }, []);
 
   return (
     <div className="App">
+      {/* HeroSlider now manages its own state internally */}
       <HeroSlider 
-        slides={slides} 
-        currentSlide={currentSlide} 
-        goToSlide={goToSlide} 
+        autoPlay={true}
+        showNavigation={true}
       />
-      <IntroductionSection />
-      <ValuesSection />
-      <PromiseSection />
-      <TimelineSection />
-      <FeaturedProjectsSection />
-      <TrustedPartnersSection />
-      <SustainabilitySection />
-      <ParallaxSection />
-      <TestimonialsSection />
-      <CTASection />
+      
+      {/* Add loading state if needed */}
+     
+     
+          <IntroductionSection />
+          <ValuesSection />
+          <PromiseSection />
+          <TimelineSection />
+          <FeaturedProjectsSection />
+          <TrustedPartnersSection />
+          <SustainabilitySection />
+          <ParallaxSection />
+          <TestimonialsSection />
+          <CTASection />
+        
     </div>
   );
 };
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import HeroSlider from '../components/home/HeroSlider';
+// import IntroductionSection from '../components/home/IntroductionSection';
+// import ValuesSection from '../components/home/ValuesSection';
+// import PromiseSection from '../components/home/PromiseSection';
+// import TimelineSection from '../components/home/TimelineSection';
+// import FeaturedProjectsSection from '../components/home/FeaturedProjectsSection';
+// import TrustedPartnersSection from '../components/home/TrustedPartnersSection';
+// import SustainabilitySection from '../components/home/SustainabilitySection';
+// import ParallaxSection from '../components/home/ParallaxSection';
+// import TestimonialsSection from '../components/home/TestimonialsSection';
+// import CTASection from '../components/home/CTASection';
+
+// const Home = () => {
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+
+//     const animateCounters = () => {
+//       const counters = document.querySelectorAll('.counter');
+//       counters.forEach(counter => {
+//         const target = parseInt(counter.getAttribute('data-count'));
+//         const suffix = counter.textContent.includes('Million') ? 'M+' : '+';
+//         let count = 0;
+//         const duration = 2000;
+//         const increment = target / (duration / 16);
+        
+//         const updateCount = () => {
+//           if (count < target) {
+//             count += increment;
+//             counter.textContent = Math.floor(count) + (suffix && count >= target ? suffix : '');
+//             setTimeout(updateCount, 16);
+//           } else {
+//             counter.textContent = target + (suffix ? suffix : '');
+//           }
+//         };
+        
+//         updateCount();
+//       });
+//     };
+
+//     const checkFadeIn = () => {
+//       const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .zoom-in');
+//       fadeElements.forEach(element => {
+//         const elementTop = element.getBoundingClientRect().top;
+//         const elementVisible = 150;
+        
+//         if (elementTop < window.innerHeight - elementVisible) {
+//           element.classList.add('visible');
+//         }
+//       });
+//     };
+
+//     const timer = setTimeout(() => {
+//       animateCounters();
+//       checkFadeIn();
+//     }, 100);
+
+//     window.addEventListener('scroll', checkFadeIn);
+
+//     return () => {
+//       clearTimeout(timer);
+//       window.removeEventListener('scroll', checkFadeIn);
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+//       {/* HeroSlider manages everything internally */}
+//       <HeroSlider />
+      
+//       {mounted && (
+//         <>
+//           <IntroductionSection />
+//           <ValuesSection />
+//           <PromiseSection />
+//           <TimelineSection />
+//           <FeaturedProjectsSection />
+//           <TrustedPartnersSection />
+//           <SustainabilitySection />
+//           <ParallaxSection />
+//           <TestimonialsSection />
+//           <CTASection />
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Home;

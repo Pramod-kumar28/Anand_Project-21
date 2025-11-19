@@ -250,7 +250,7 @@ const Gallery = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="gallery-hero bg-light-navy text-white py-24 md:py-32">
+      <section className="gallery-hero bg-light-navy text-white py-24 md:py-32 sm:h-">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-6">Our Portfolio of Excellence</h1>
           <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
@@ -333,7 +333,7 @@ const Gallery = () => {
                   <h3 className="text-xl font-bold text-blue-800 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
                   <button 
-                    className="font-semibold flex items-center transition-colors duration-300 text-cyan-800 bg-cyan-200 hover:bg-cyan-500 hover:text-white py-2 px-4 rounded-lg"
+                    className="font-semibold flex items-center transition-colors duration-300 text-white navy-blue py-2 px-4 rounded-lg"
                     onClick={() => openProjectModal(project)}
                   >
                     View Details <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>

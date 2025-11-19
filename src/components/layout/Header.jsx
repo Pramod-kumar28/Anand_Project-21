@@ -8,7 +8,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path
 
   return (
-    <header className="bg-white text-blue-500 sticky top-0 z-50 shadow-lg">  
+    <header className="bg-white text-blue-800 sticky top-0 z-50 shadow-lg">  
       <div className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -46,7 +46,7 @@ const Header = () => {
               to="/" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/') 
-                  ? 'text-blue-700 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
@@ -56,7 +56,7 @@ const Header = () => {
               to="/about" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/about') 
-                  ? 'text-blue-700 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
@@ -66,7 +66,7 @@ const Header = () => {
               to="/projects" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/projects') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
@@ -76,7 +76,7 @@ const Header = () => {
               to="/contact" 
               className={`font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
                 isActive('/contact') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
             >
@@ -102,7 +102,7 @@ const Header = () => {
               to="/" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
@@ -113,7 +113,7 @@ const Header = () => {
               to="/about" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/about') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
@@ -124,7 +124,7 @@ const Header = () => {
               to="/projects" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/projects') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
@@ -135,7 +135,7 @@ const Header = () => {
               to="/contact" 
               className={`font-medium px-4 py-3 rounded-lg transition-all duration-300 ${
                 isActive('/contact') 
-                  ? 'text-navy-blue-300 bg-blue-500 bg-opacity-10' 
+                  ? 'text-navy-blue bg-blue-500 bg-opacity-10' 
                   : 'hover:text-blue-300 hover:bg-white hover:bg-opacity-5'
               }`}
               onClick={() => setMobileMenuOpen(false)}
