@@ -206,10 +206,6 @@
 
 
 
-
-
-
-
 import React, { useState, useEffect } from 'react';
 
 const HeroSlider = () => {
@@ -264,7 +260,7 @@ const HeroSlider = () => {
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, infrastructureSlides.length]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -285,70 +281,122 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 container">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-green-500/10 rounded-full blur-3xl animate-float-medium"></div>
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-float-slow sm:-top-20 sm:-right-20 sm:w-60 sm:h-60"></div>
+        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl animate-float-medium sm:-bottom-20 sm:-left-20 sm:w-60 sm:h-60"></div>
       </div>
 
-      <div className="container mx-auto sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-14">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-8 sm:py-12 lg:py-16">
           
           {/* Left Side - Content */}
-          <div className="text-white relative pt-10">
-            {/* Content */}
-            <div className="relative h-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:h-96 overflow-hidden">
+          <div className="text-white relative order-2 lg:order-1">
+            <div className="relative h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[450px] overflow-hidden">
               {infrastructureSlides.map((slide, index) => (
                 <div
                   key={slide.id}
                   className={`absolute inset-0 transition-all duration-700 transform ${
                     index === currentSlide
                       ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 translate-x-10'
+                      : 'opacity-0 translate-x-4'
                   }`}
                 >
-                  <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 mb-4 sm:mb-6">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm text-blue-100 font-medium">Infrastructure Excellence</span>
+                  </div>
+
+                  {/* Title */}
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 sm:mb-4">
                     {slide.title}
                   </h1>
 
-                  <p className="text-xl text-blue-100 font-light mb-6">
+                  {/* Subtitle */}
+                  <p className="text-lg sm:text-xl md:text-2xl text-blue-100 font-light mb-4 sm:mb-6 leading-relaxed">
                     {slide.subtitle}
                   </p>
 
                   {/* Features */}
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                     {slide.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-blue-100">
-                        <span className="text-orange-400 mr-3">✓</span>
-                        <span>{feature}</span>
+                        <span className="text-orange-400 mr-2 sm:mr-3 text-sm sm:text-base">✓</span>
+                        <span className="text-sm sm:text-base md:text-lg">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Timeline */}
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-                      <div className="text-sm text-blue-200">Project Timeline</div>
-                      <div className="text-lg font-bold text-white">{slide.timeline}</div>
+                  {/* Timeline & CTA Container */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    {/* Timeline */}
+                    <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/20 min-w-[140px]">
+                      <div className="text-xs sm:text-sm text-blue-200 font-medium">Timeline</div>
+                      <div className="text-base sm:text-lg md:text-xl font-bold text-white mt-1">{slide.timeline}</div>
                     </div>
-                  </div>
 
-                  {/* CTA Button */}
-                  <button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-orange-700 hover:to-yellow-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl">
-                    {slide.cta} →
-                  </button>
+                    {/* CTA Button */}
+                    <button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-orange-700 hover:to-yellow-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-xl transform hover:scale-105 text-sm sm:text-base md:text-lg flex items-center gap-2 group">
+                      <span>{slide.cta}</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </button>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Mobile Navigation Dots */}
+            <div className="flex justify-center space-x-2 mt-6 lg:hidden">
+              {infrastructureSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'bg-orange-400 w-6'
+                      : 'bg-white/40'
+                  }`}
+                />
               ))}
             </div>
           </div>
 
           {/* Right Side - Image */}
-          <div className="relative">
-            <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 z-20">
+          <div className="relative order-1 lg:order-2">
+            {/* Mobile Navigation Buttons */}
+            <div className="flex justify-between items-center mb-4 lg:hidden">
               <button 
                 onClick={prevSlide}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <div className="bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+                <span className="text-white text-sm">
+                  {currentSlide + 1} / {infrastructureSlides.length}
+                </span>
+              </div>
+
+              <button 
+                onClick={nextSlide}
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Desktop Navigation Buttons */}
+            <div className="hidden lg:block absolute top-1/2 -left-6 transform -translate-y-1/2 z-20">
+              <button 
+                onClick={prevSlide}
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110"
               >
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -356,10 +404,10 @@ const HeroSlider = () => {
               </button>
             </div>
 
-            <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+            <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-20">
               <button 
                 onClick={nextSlide}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110"
               >
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -367,8 +415,8 @@ const HeroSlider = () => {
               </button>
             </div>
 
-            {/* Image */}
-            <div className="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl">
+            {/* Main Image */}
+            <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
               {infrastructureSlides.map((slide, index) => (
                 <div
                   key={slide.id}
@@ -384,11 +432,11 @@ const HeroSlider = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                   
-                  {/* Slide Indicator */}
-                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+                  {/* Desktop Slide Indicator */}
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full hidden lg:block">
                     <span className="text-white text-sm">
                       {currentSlide + 1} / {infrastructureSlides.length}
                     </span>
@@ -397,16 +445,16 @@ const HeroSlider = () => {
               ))}
             </div>
 
-            {/* Thumbnails */}
-            <div className="flex justify-center space-x-3 mt-4">
+            {/* Thumbnails - Desktop Only */}
+            <div className="hidden lg:flex justify-center space-x-3 mt-4">
               {infrastructureSlides.map((slide, index) => (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(index)}
-                  className={`w-12 h-12 rounded-lg overflow-hidden border transition-all duration-300 ${
+                  className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 transform ${
                     index === currentSlide
-                      ? 'border-orange-400 scale-110'
-                      : 'border-white/30'
+                      ? 'border-orange-400 scale-110 shadow-lg'
+                      : 'border-white/30 hover:border-white/50 hover:scale-105'
                   }`}
                 >
                   <img
@@ -424,15 +472,31 @@ const HeroSlider = () => {
       {/* Custom CSS */}
       <style jsx>{`
         @keyframes float-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(180deg); }
         }
         @keyframes float-medium {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-15px) rotate(180deg); }
         }
-        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+        .animate-float-slow { 
+          animation: float-slow 8s ease-in-out infinite; 
+        }
+        .animate-float-medium { 
+          animation: float-medium 6s ease-in-out infinite; 
+        }
+        
+        /* Ensure proper text rendering */
+        h1 {
+          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        button, .transition-all {
+          transition-property: all;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 300ms;
+        }
       `}</style>
     </section>
   );
