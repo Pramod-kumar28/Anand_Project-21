@@ -1206,7 +1206,7 @@ const About = () => {
 
   // Stat Card Component
   const StatCard = ({ title, subtitle }) => (
-    <div className="bg-white rounded-lg md:rounded-xl shadow-sm p-4 md:p-6 flex flex-col items-start justify-center ring-1 ring-gray-100">
+    <div className="bg-white rounded-lg md:rounded-xl shadow-sm shadow-xl p-4 md:p-6 flex flex-col items-start justify-center ring-1 ring-gray-100 hover:bg-gray-50">
       <div className="text-lg md:text-2xl font-bold text-slate-900">{title}</div>
       <div className="text-xs md:text-sm text-gray-400 mt-1">{subtitle}</div>
     </div>
