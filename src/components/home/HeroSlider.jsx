@@ -292,7 +292,7 @@ const HeroSlider = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-8 sm:py-12 lg:py-16">
           
           {/* Left Side - Content */}
-          <div className="text-white relative order-2 lg:order-1">
+          <div className="text-white relative sm:p-0 px-6 order-2 lg:order-1">
             <div className="relative h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[450px] overflow-hidden">
               {infrastructureSlides.map((slide, index) => (
                 <div
