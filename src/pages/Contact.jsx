@@ -99,12 +99,17 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="contact-hero text-white py-16 md:py-32">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Start Your Legacy Project With Us</h1>
-          <p className="text-lg md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto px-4">
-            We are eager to hear about your vision and discuss how we can bring it to life.
-          </p>
+      {/* Enhanced Hero Section */}
+      <section className="relative py-20 md:py-22 bg-gradient-to-r from-blue-500 to-blue-900 overflow-hidden">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="inline-block bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20 shadow-2xl mb-8 fade-in">
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-6 fade-in">
+             Let's <span className='text-amber-500 text-center'> connect</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed fade-in">
+              We are eager to hear about your vision and discuss how we can bring it to life with excellence and precision.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -114,7 +119,7 @@ const Contact = () => {
           {/* Section Header - Aligned Titles */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div>
-              <div className='mb-3'>
+              <div className='mb-3 text-center'>
                 <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Get In Touch</h2>
                 <p className="text-gray-600 text-sm md:text-base">Multiple ways to connect with our team</p>
               </div>
@@ -156,7 +161,7 @@ const Contact = () => {
             </div>
             
             <div>
-              <div className='mb-3'>
+              <div className='mb-3 text-center'>
                 <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Send us a message</h2>
                 <p className="text-gray-600 text-sm md:text-base">Fill out the form below and we'll get back to you within 24 hours</p>
               </div>

@@ -25,26 +25,26 @@
     color: #FFA500;
 }
 
-
-
-body {
-    font-family:sans-serif;
-    
+/* Ensure header stays on top with solid background */
+header {
+    position: relative;
+    z-index: 1000;
+    background-color: white !important;
 }
 
-/* In your main CSS file */
+/* Container consistency */
 .container {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
 
-/* Or if using Tailwind, ensure all pages use the same container class */
-
-/* Hero Slider Styles */
+/* Hero Slider Styles - Fixed z-index issues */
 .hero-slider {
     position: relative;
     height: 75vh;
     overflow: hidden;
+    z-index: 1;
+    margin-top: 0;
 }
 
 .slide {
@@ -74,11 +74,12 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(30, 58, 95, 0.8) 0%, rgba(45, 79, 124, 0.7) 100%);
+    z-index: 1; /* Fixed: Added z-index */
 }
 
 .slide-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Fixed: Ensure content is above overlay */
     text-align: center;
     color: white;
     max-width: 800px;
@@ -109,11 +110,13 @@ body {
     transform: scale(1.2);
 }
 
-/* Animation Classes */
+/* Animation Classes - Disabled for Framer Motion compatibility */
+/* Remove or comment out these CSS animations when using Framer Motion */
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 2s ease, transform 1s ease;
 }
 
 .fade-in.visible {
@@ -154,6 +157,8 @@ body {
     transform: scale(1);
 }
 
+
+/* Keep only non-conflicting animations */
 .floating {
     animation: floating 3s ease-in-out infinite;
 }
@@ -173,6 +178,7 @@ body {
     50% { opacity: .8; }
 }
 
+/* Hover effects - keep these as they don't conflict */
 .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -229,6 +235,7 @@ body {
     background-size: cover;
 }
 
+/* Timeline styles - keep structure but remove conflicting animations */
 .timeline-item {
     position: relative;
     padding-left: 2rem;
@@ -238,7 +245,7 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.5rem;
+    top: 0.8rem;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -249,8 +256,8 @@ body {
     content: '';
     position: absolute;
     left: 5px;
-    top: 1.5rem;
-    bottom: -1rem;
+    top: 1.7rem;
+    bottom: 0.5rem;
     width: 2px;
     background: #e5e7eb;
 }
@@ -261,7 +268,6 @@ body {
 
 .value-card {
     transition: all 0.3s ease;
-    
 }
 
 .value-card:hover {
@@ -288,26 +294,33 @@ body {
 }
 
 .about-hero {
-    background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(30, 58, 95, 0.386), rgba(30, 58, 95, 0.756)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     height: 70vh;
 }
 
 .gallery-hero {
-    background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(30, 58, 95, 0.329), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     height: 70vh;
 }
 
 .contact-hero {
-    background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(30, 58, 95, 0.37), rgba(30, 58, 95, 0.507)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     height: 70vh;
 }
 
+/* Ensure all pages have consistent white background */
+.App, .home-page, body {
+    background-color: white;
+    position: relative;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .hero-slider {
         height: 100vh;
@@ -319,33 +332,20 @@ body {
     .gallery-hero{
         height: 50vh;
     }
+    .about-hero,
+    .contact-hero {
+        height: 50vh;
+    }
 }
 
+/* Framer Motion specific fixes */
+.motion-element {
+    /* Ensure Framer Motion elements don't conflict with existing CSS */
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
 
-/* Add to your CSS file */
-@layer utilities {
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(102, 146, 223) rgb(243 244 246)
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-    border-radius: 10px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: rgb(69, 111, 195);
-    border-radius: 10px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgb(119, 166, 248);
-    border-radius: 10px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: rgb(103, 139, 212);
-  }
+/* Smooth scrolling for better performance */
+html {
+    scroll-behavior: smooth;
 }

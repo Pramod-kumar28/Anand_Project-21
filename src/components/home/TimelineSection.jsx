@@ -3,8 +3,8 @@ import React from 'react';
 const TimelineSection = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Our Project Journey</h2>
-      <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
+      <h2 className="text-2xl md:text-4xl font-bold text-center text-blue-800 mb-4 fade-in">Our Project Journey</h2>
+      <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
         From concept to completion, we follow a meticulous process
       </p>
       

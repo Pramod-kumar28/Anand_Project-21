@@ -4,16 +4,16 @@ const IntroductionSection = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4 fade-in">Welcome to Anand Infra</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-800 mb-4 fade-in">Welcome to Anand Infra</h2>
         
-        <p className="text-base text-gray-600 fade-in mt-3">
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 fade-in">
           We are dedicated creators of enduring infrastructure, blending scientific planning with timeless design. 
           From visionary townships to robust industrial complexes and public infrastructure projects, 
           we build with a commitment to quality, harmony, and a future-ready approach.
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 zoom-in">
         {[
           { icon: 'city', title: 'Commercial Complexes', desc: 'Dynamic spaces for business to thrive.' },
           { icon: 'home', title: 'Residential Townships', desc: 'Creating communities, not just houses.' },

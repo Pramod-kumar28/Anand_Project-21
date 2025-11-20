@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const FeaturedProjectsSection = () => (
   <section className="py-16 bg-gray-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Featured Projects</h2>
-      <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
+      <h2 className="text-2xl md:text-4xl font-bold text-center text-blue-800 mb-4 fade-in">Featured Projects</h2>
+      <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in">
         A glimpse of our recent work that showcases our commitment to excellence
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 zoom-in">
         {[
           { 
             image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
@@ -39,7 +39,7 @@ const FeaturedProjectsSection = () => (
               <span className={`inline-block bg-${project.categoryColor}-100 text-${project.categoryColor}-800 text-sm font-medium px-3 py-1 rounded-full mb-3`}>
                 {project.category}
               </span>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">{project.title}</h3>
+              <h3 className="text-lg font-bold text-blue-800 mb-2">{project.title}</h3>
               <p className="text-gray-600 mb-4">{project.desc}</p>
               <Link to="/projects" className="text-navy-blue font-semibold flex items-center">
                 View Project <i className="fas fa-arrow-right ml-2"></i>
@@ -49,7 +49,7 @@ const FeaturedProjectsSection = () => (
         ))}
       </div>
       
-      <div className="text-center mt-12">
+      <div className="text-center mt-12 fade-in">
         <Link to="/projects" className="bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 inline-block">
           View All Projects
         </Link>

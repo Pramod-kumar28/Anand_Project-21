@@ -6,10 +6,12 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import ScrollToTop from './components/layout/ScrollToTop'
 
 function App() {
   return (
     <Router>
+        <ScrollToTop/>
       <div className="min-h-screen bg-gray-50 scrollbar-thin">
         <Header />
         <main >

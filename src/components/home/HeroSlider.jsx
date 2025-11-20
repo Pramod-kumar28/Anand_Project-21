@@ -204,13 +204,12 @@
 
 
 
-
-
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
 
   const infrastructureSlides = [
     {
@@ -218,7 +217,8 @@ const HeroSlider = () => {
       image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       title: "Road Construction",
       subtitle: "Modern Highway Development",
-      features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design"],
+      description: "State-of-the-art road infrastructure with smart traffic management systems and durable materials for long-lasting performance.",
+      features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design", "Advanced Engineering"],
       timeline: "12-18 Months",
       cta: "View Projects"
     },
@@ -227,7 +227,8 @@ const HeroSlider = () => {
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       title: "Bridge Engineering",
       subtitle: "Advanced Structural Solutions",
-      features: ["Precision Engineering", "Safety First Approach", "Sustainable Materials"],
+      description: "Precision-engineered bridges with safety-first approach and sustainable materials for reliable infrastructure.",
+      features: ["Precision Engineering", "Safety First Approach", "Sustainable Materials", "Quality Assurance"],
       timeline: "18-24 Months",
       cta: "Explore Designs"
     },
@@ -236,16 +237,18 @@ const HeroSlider = () => {
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       title: "Urban Infrastructure",
       subtitle: "Smart City Development",
-      features: ["Integrated Utilities", "Green Spaces", "Digital Infrastructure"],
+      description: "Comprehensive urban development with integrated utilities and digital infrastructure for modern cities.",
+      features: ["Integrated Utilities", "Green Spaces", "Digital Infrastructure", "Smart Solutions"],
       timeline: "24-36 Months",
       cta: "See Plans"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "https://media.istockphoto.com/id/2226599963/photo/high-rise-apartment-buildings-in-bengaluru-india-viewed-from-above-under-a-dramatic-sky.webp?a=1&b=1&s=612x612&w=0&k=20&c=Bh9uE9GnrU4kga3DCeR2tZ6rhI_N7j4bma2RUcppa1w=",
       title: "Public Works",
       subtitle: "Community Development Projects",
-      features: ["Water Management", "Public Facilities", "Environmental Care"],
+      description: "Sustainable public infrastructure projects focusing on environmental care and community welfare.",
+      features: ["Water Management", "Public Facilities", "Environmental Care", "Community Focus"],
       timeline: "12-24 Months",
       cta: "Learn More"
     }
@@ -253,247 +256,206 @@ const HeroSlider = () => {
 
   // Auto-slide functionality
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    
+    if (isHovering) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % infrastructureSlides.length);
-    }, 5000);
-    
+    }, 4000);
+
     return () => clearInterval(interval);
-  }, [isAutoPlaying, infrastructureSlides.length]);
+  }, [isHovering, infrastructureSlides.length]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
   };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % infrastructureSlides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + infrastructureSlides.length) % infrastructureSlides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
+  const heroVariants = {
+    enter: { opacity: 0, x: 300 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -300 }
+  };
+
+  const contentVariants = {
+    enter: { opacity: 0, y: 20 },
+    center: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-float-slow sm:-top-20 sm:-right-20 sm:w-60 sm:h-60"></div>
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl animate-float-medium sm:-bottom-20 sm:-left-20 sm:w-60 sm:h-60"></div>
-      </div>
+    <section className="relative py-8 md:py-12 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Hero Carousel Container */}
+          <div 
+            className="relative bg-white rounded-2xl shadow-2xl overflow-hidden"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
+            <div className="flex flex-col lg:flex-row min-h-[400px] md:min-h-[500px]">
+              
+              {/* Image Slider */}
+              <div className="relative h-48 md:h-64 lg:h-auto lg:w-1/2 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide}
+                    variants={heroVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{
+                      backgroundImage: `url(${infrastructureSlides[currentSlide].image})`
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-black/30"></div>
+                  </motion.div>
+                </AnimatePresence>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-8 sm:py-12 lg:py-16">
-          
-          {/* Left Side - Content */}
-          <div className="text-white relative sm:p-0 px-6 order-2 lg:order-1">
-            <div className="relative h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[450px] overflow-hidden">
-              {infrastructureSlides.map((slide, index) => (
-                <div
-                  key={slide.id}
-                  className={`absolute inset-0 transition-all duration-700 transform ${
-                    index === currentSlide
-                      ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 translate-x-4'
-                  }`}
-                >
-                  {/* Badge */}
-                  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 mb-4 sm:mb-6">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                    <span className="text-xs sm:text-sm text-blue-100 font-medium">Infrastructure Excellence</span>
-                  </div>
-
-                  {/* Title */}
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 sm:mb-4">
-                    {slide.title}
-                  </h1>
-
-                  {/* Subtitle */}
-                  <p className="text-lg sm:text-xl md:text-2xl text-blue-100 font-light mb-4 sm:mb-6 leading-relaxed">
-                    {slide.subtitle}
-                  </p>
-
-                  {/* Features */}
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {slide.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-blue-100">
-                        <span className="text-orange-400 mr-2 sm:mr-3 text-sm sm:text-base">✓</span>
-                        <span className="text-sm sm:text-base md:text-lg">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Timeline & CTA Container */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    {/* Timeline */}
-                    <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/20 min-w-[140px]">
-                      <div className="text-xs sm:text-sm text-blue-200 font-medium">Timeline</div>
-                      <div className="text-base sm:text-lg md:text-xl font-bold text-white mt-1">{slide.timeline}</div>
-                    </div>
-
-                    {/* CTA Button */}
-                    <button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-orange-700 hover:to-yellow-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-xl transform hover:scale-105 text-sm sm:text-base md:text-lg flex items-center gap-2 group">
-                      <span>{slide.cta}</span>
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Navigation Dots */}
-            <div className="flex justify-center space-x-2 mt-6 lg:hidden">
-              {infrastructureSlides.map((_, index) => (
+                {/* Navigation Arrows */}
                 <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-orange-400 w-6'
-                      : 'bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+                  onClick={prevSlide}
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-300 z-10"
+                >
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-300 z-10"
+                >
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
 
-          {/* Right Side - Image */}
-          <div className="relative order-1 lg:order-2">
-            {/* Mobile Navigation Buttons */}
-            <div className="flex justify-between items-center mb-4 lg:hidden">
-              <button 
-                onClick={prevSlide}
-                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              <div className="bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                <span className="text-white text-sm">
-                  {currentSlide + 1} / {infrastructureSlides.length}
-                </span>
+                {/* Navigation Dots */}
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                  {infrastructureSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentSlide ? 'bg-orange-500' : 'bg-white/60'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
 
-              <button 
-                onClick={nextSlide}
-                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+              {/* Content Area */}
+              <div className="lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="text-center lg:text-left"
+                  >
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-4 md:mb-6">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs md:text-sm text-blue-700 font-medium">Infrastructure Excellence</span>
+                    </div>
 
-            {/* Desktop Navigation Buttons */}
-            <div className="hidden lg:block absolute top-1/2 -left-6 transform -translate-y-1/2 z-20">
-              <button 
-                onClick={prevSlide}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            </div>
+                    {/* Title */}
+                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-800 mb-2 md:mb-3 leading-tight">
+                      {infrastructureSlides[currentSlide].title}
+                    </h1>
+                    
+                    {/* Subtitle */}
+                    <p className="text-base md:text-lg text-orange-600 font-semibold mb-2 md:mb-3 leading-tight">
+                      {infrastructureSlides[currentSlide].subtitle}
+                    </p>
+                    
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
+                      {infrastructureSlides[currentSlide].description}
+                    </p>
 
-            <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-20">
-              <button 
-                onClick={nextSlide}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-2 gap-2 mb-4 md:mb-6">
+                      {infrastructureSlides[currentSlide].features.map((feature, index) => (
+                        <div key={index} className="flex items-center text-xs md:text-sm text-gray-700">
+                          <span className="text-green-500 mr-1">✓</span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
 
-            {/* Main Image */}
-            <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              {infrastructureSlides.map((slide, index) => (
-                <div
-                  key={slide.id}
-                  className={`absolute inset-0 transition-all duration-700 transform ${
-                    index === currentSlide
-                      ? 'opacity-100 scale-100'
-                      : 'opacity-0 scale-105'
-                  }`}
-                >
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                  
-                  {/* Desktop Slide Indicator */}
-                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full hidden lg:block">
-                    <span className="text-white text-sm">
-                      {currentSlide + 1} / {infrastructureSlides.length}
-                    </span>
-                  </div>
+                    {/* Timeline & CTA Container */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6">
+                      {/* Timeline */}
+                      <div className="bg-blue-50 px-4 py-3 rounded-xl border border-blue-200 min-w-[140px]">
+                        <div className="text-xs md:text-sm text-blue-700 font-medium">Timeline</div>
+                        <div className="text-base md:text-lg font-bold text-blue-800 mt-1">
+                          {infrastructureSlides[currentSlide].timeline}
+                        </div>
+                      </div>
+
+                      {/* CTA Button */}
+                      <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base flex items-center gap-2 group w-full sm:w-auto justify-center">
+                        <span>{infrastructureSlides[currentSlide].cta}</span>
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Brand Tagline */}
+                <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-gray-200">
+                  <p className="text-xs md:text-sm text-gray-500 text-center lg:text-left leading-tight">
+                    <span className="text-orange-500 font-semibold">"Building Tomorrow's Infrastructure Today"</span> - Quality, Reliability, Excellence
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
 
-            {/* Thumbnails - Desktop Only */}
-            <div className="hidden lg:flex justify-center space-x-3 mt-4">
-              {infrastructureSlides.map((slide, index) => (
-                <button
-                  key={slide.id}
-                  onClick={() => goToSlide(index)}
-                  className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 transform ${
-                    index === currentSlide
-                      ? 'border-orange-400 scale-110 shadow-lg'
-                      : 'border-white/30 hover:border-white/50 hover:scale-105'
-                  }`}
-                >
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+           
           </div>
         </div>
       </div>
 
-      {/* Custom CSS */}
+      {/* Custom CSS for exact font matching */}
       <style jsx>{`
+        /* Font family matching the reference design */
+        .font-family-inherit {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        /* Custom animations */
         @keyframes float-slow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
+          50% { transform: translateY(-10px) rotate(180deg); }
         }
+        
         @keyframes float-medium {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(180deg); }
-        }
-        .animate-float-slow { 
-          animation: float-slow 8s ease-in-out infinite; 
-        }
-        .animate-float-medium { 
-          animation: float-medium 6s ease-in-out infinite; 
+          50% { transform: translateY(-8px) rotate(180deg); }
         }
         
-        /* Ensure proper text rendering */
-        h1 {
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        .animate-float-slow {
+          animation: float-slow 8s ease-in-out infinite;
         }
         
-        /* Smooth transitions for all interactive elements */
-        button, .transition-all {
-          transition-property: all;
+        .animate-float-medium {
+          animation: float-medium 6s ease-in-out infinite;
+        }
+
+        /* Smooth transitions */
+        * {
+          transition-property: color, background-color, border-color, transform;
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-duration: 300ms;
         }

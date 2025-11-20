@@ -3,12 +3,12 @@ import React from 'react';
 const ValuesSection = () => (
   <section className="py-16 bg-gradient-to-r from-cyan-50 to-blue-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-4 fade-in">Our Core Values</h2>
-      <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12 fade-in mt-4">
+      <h2 className="text-2xl md:text-4xl font-bold text-center text-blue-800 mb-4 fade-in">Our Core Values</h2>
+      <p className="text-base md:text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12 fade-in mt-4">
         The principles that guide every project we undertake
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 zoom-in">
         {[
           { icon: 'handshake', title: 'Integrity', desc: 'We believe in transparent communication and ethical practices in all our dealings, building trust that lasts generations.' },
           { icon: 'star', title: 'Excellence', desc: 'From material selection to final finishing, we never compromise on quality, ensuring every project exceeds expectations.' },
