@@ -702,7 +702,7 @@ const About = () => {
           {/* Description */}
           <div className="mb-4 md:mb-6 space-y-3 md:space-y-4 mt-4 md:mt-5">
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Under the visionary leadership of our Founder, Mr. Anand, the Anand Group was established on the principle of <span className='font-bold text-amber-500'>"Dharmo Rakshati Rakshitah"</span>—that one who upholds righteousness is protected by it.
+              Under the visionary leadership of our Founder, Mr. Anand, the Anand Group was established on the principle of <span className='font-bold text-amber-500'>"Dharmo Rakshati Rakshitah"</span> that one who upholds righteousness is protected by it.
               This ethos guides our mission to build transformative and sustainable infrastructure, driven by his engineering expertise and a commitment to ethical development.
             </p>
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
