@@ -1419,6 +1419,7 @@ import SustainabilitySection from '../components/home/SustainabilitySection';
 import ParallaxSection from '../components/home/ParallaxSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
+import FeaturedServicesSection from '../components/home/FeaturedProjectsSection';
 
 const Home = () => {
   // Remove the old slider state and functionality since HeroSlider now manages its own state
@@ -1494,7 +1495,7 @@ const Home = () => {
           <ValuesSection />
           <PromiseSection />
           <TimelineSection />
-          <FeaturedProjectsSection />
+          <FeaturedServicesSection />
           <TrustedPartnersSection />
           <SustainabilitySection />
           <ParallaxSection />

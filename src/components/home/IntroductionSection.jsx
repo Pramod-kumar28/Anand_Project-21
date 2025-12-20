@@ -6,10 +6,15 @@ const IntroductionSection = () => (
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-2xl md:text-4xl font-bold text-blue-800 mb-4 fade-in">Welcome to Anand Infra</h2>
         
-        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 fade-in">
-          We are dedicated creators of enduring infrastructure, blending scientific planning with timeless design. 
-          From visionary townships to robust industrial complexes and public infrastructure projects, 
-          we build with a commitment to quality, harmony, and a future-ready approach.
+        <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2 fade-in">
+          At Anand Infra, we are dedicated to creating infrastructure that endures for generations strong,
+          precise, and timeless. We handle a wide spectrum of development including commercial
+          complexes, residential townships, industrial structures, warehouses, layout
+          development, public utilities, community infrastructure, and large-scale construction
+          projects. Every creation is built with scientific planning, strict quality control, and Vastu-aligned
+          design to ensure balance, longevity, and well-being. We build not just for today, but for the
+          future delivering iconic, reliable, and innovative infrastructure that strengthens communities
+          and becomes a lasting legacy.
         </p>
       </div>
       

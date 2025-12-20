@@ -82,7 +82,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="navy-blue bg-navy-blue text-white py-10 relative">
+      <footer className="navy-blue bg-navy-blue text-white py-5 pt-10 relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* ... (your existing footer content remains the same) ... */}
@@ -115,7 +115,7 @@ const Footer = () => {
                 
               </div>
               <p className="text-gray-300 mb-6 text-sm">
-                Creating infrastructure that endures for generations—strong, precise, and timeless.
+                Anand Infra builds enduring, quality-driven infrastructure for today and future generations. We create innovative and reliable landmarks, from townships to industrial projects, that strengthen communities. Every project is a lasting legacy, crafted with precision and care.
               </p>
               <div className="flex space-x-4">
                 <Link to="#" className="bg-light-navy hover:bg-blue-700 h-10 w-10 rounded-full flex items-center justify-center transition duration-300">
@@ -138,7 +138,7 @@ const Footer = () => {
               <ul className="space-y-3 text-sm lg:text-left sm:text-left">
                 <li><Link to="/" className="text-gray-300 hover:text-amber-500 transition duration-300">Home</Link></li>
                 <li><Link to="/about" className="text-gray-300 hover:text-amber-500 transition duration-300">About</Link></li>
-                <li><Link to="/projects" className="text-gray-300 hover:text-amber-500 transition duration-300">Projects</Link></li>
+                <li><Link to="/services" className="text-gray-300 hover:text-amber-500 transition duration-300">Services</Link></li>
                 <li><Link to="/contact" className="text-gray-300 hover:text-amber-500 transition duration-300">Contact</Link></li>
               </ul>
             </div>
@@ -176,7 +176,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="border-t border-blue-800 pt-8 mt-8">
+          <div className="border-t border-blue-800 pt-4 mt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400 text-sm">
                 &copy; 2025 Anand Infra. All rights reserved.
@@ -328,7 +328,6 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><Link to="/" className="text-amber-600 hover:text-amber-700 transition duration-300">Home</Link></li>
                 <li><Link to="/about" className="text-amber-600 hover:text-amber-700 transition duration-300">About Us</Link></li>
-                <li><Link to="/projects" className="text-amber-600 hover:text-amber-700 transition duration-300">Our Projects</Link></li>
                 <li><Link to="/services" className="text-amber-600 hover:text-amber-700 transition duration-300">Services</Link></li>
                 <li><Link to="/contact" className="text-amber-600 hover:text-amber-700 transition duration-300">Contact Us</Link></li>
               </ul>

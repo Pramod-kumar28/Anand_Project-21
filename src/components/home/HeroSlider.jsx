@@ -220,7 +220,7 @@ const HeroSlider = () => {
       description: "State-of-the-art road infrastructure with smart traffic management systems and durable materials for long-lasting performance.",
       features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design", "Advanced Engineering"],
       timeline: "12-18 Months",
-      cta: "View Projects"
+      cta: "View services"
     },
     {
       id: 2,
