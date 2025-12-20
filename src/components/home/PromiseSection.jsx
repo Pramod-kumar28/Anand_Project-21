@@ -8,9 +8,9 @@ const PromiseSection = () => (
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
         {[
-          { icon: 'flask', title: 'Scientific Planning', desc: 'Data-driven and technologically advanced project execution for optimal efficiency and sustainability.' },
-          { icon: 'award', title: 'Uncompromising Quality', desc: 'Rigorous, multi-stage quality control protocols that leave no room for error.' },
-          { icon: 'yin-yang', title: 'Vastu-Aligned Design', desc: 'Harmonious layouts that promote balance, prosperity, and well-being for occupants.' },
+          { icon: 'flask', title: 'Scientific Planning', desc: 'Data driven and technologically advanced project execution for optimal efficiency and sustainability.' },
+          { icon: 'award', title: 'Uncompromising Quality', desc: 'Rigorous, multi stage quality control protocols that leave no room for error.' },
+          { icon: 'yin-yang', title: 'Vastu-Aligned Design', desc: 'Harmonious layouts that promote balance, prosperity, and well being for occupants.' },
           { icon: 'eye', title: 'Future-Ready Vision', desc: 'Building not just for today, but for the generations to come with timeless designs.' }
         ].map((item, index) => (
           <div key={index} className="flex fade-in">

@@ -682,10 +682,10 @@ const Services = () => {
       id: 1,
       icon: 'fas fa-home',
       title: 'Residential Townships',
-      description: 'Self-sufficient communities offering balanced living with parks, schools, and modern amenities. We create harmonious living spaces designed for well-being and longevity.',
+      description: 'Self-sufficient communities offering balanced living with parks, schools, and modern amenities. We create harmonious living spaces designed for well being and longevity.',
       features: [
         'Gated communities and apartment complexes',
-        'Vastu-aligned residential designs',
+        'Vastu aligned residential designs',
         'Integrated amenities and green spaces',
         'Sustainable and eco-friendly construction'
       ],
@@ -695,7 +695,7 @@ const Services = () => {
       id: 2,
       icon: 'fas fa-building',
       title: 'Commercial Complexes',
-      description: 'State-of-the-art commercial spaces designed for productivity and business success. From corporate offices to retail spaces, we build infrastructure that drives growth.',
+      description: 'State of the art commercial spaces designed for productivity and business success. From corporate offices to retail spaces, we build infrastructure that drives growth.',
       features: [
         'Office buildings and business parks',
         'Shopping malls and retail spaces',
@@ -759,10 +759,10 @@ const Services = () => {
     {
       id: 7,
       icon: 'fas fa-hard-hat',
-      title: 'Large-Scale Construction Projects',
+      title: 'Large Scale Construction Projects',
       description: 'Mega infrastructure projects that transform cities and regions. We handle complex projects with scientific planning and precision execution.',
       features: [
-        'Multi-story buildings and skyscrapers',
+        'Multi story buildings and skyscrapers',
         'Transportation infrastructure',
         'Institutional buildings',
         'Turnkey project management'
@@ -865,14 +865,17 @@ const Services = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
+                    icon: 'fas fa-ruler-combined',
                     title: 'Scientific Planning',
                     desc: 'Meticulous project planning using advanced technologies and methodologies'
                   },
                   {
+                    icon: 'fas fa-hard-hat',
                     title: 'Quality Control',
                     desc: 'Rigorous quality assurance at every stage of construction'
                   },
                   {
+                    icon: 'fas fa-yin-yang',
                     title: 'Vastu-Aligned Design',
                     desc: 'Harmonious designs that promote well-being and positive energy flow'
                   }
@@ -883,6 +886,7 @@ const Services = () => {
                     whileHover={{ y: -5, scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
+                    <i className={`${item.icon} text-2xl text-blue-700 mb-2`}></i>
                     <h4 className="font-bold text-blue-700 mb-2">{item.title}</h4>
                     <p className="text-gray-600 text-sm">{item.desc}</p>
                   </motion.div>

@@ -217,7 +217,7 @@ const HeroSlider = () => {
       image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       title: "Road Construction",
       subtitle: "Modern Highway Development",
-      description: "State-of-the-art road infrastructure with smart traffic management systems and durable materials for long-lasting performance.",
+      description: "State of the art road infrastructure with smart traffic management systems and durable materials for long lasting performance.",
       features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design", "Advanced Engineering"],
       timeline: "12-18 Months",
       cta: "View services"
@@ -227,7 +227,7 @@ const HeroSlider = () => {
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       title: "Bridge Engineering",
       subtitle: "Advanced Structural Solutions",
-      description: "Precision-engineered bridges with safety-first approach and sustainable materials for reliable infrastructure.",
+      description: "Precision engineered bridges with safety first approach and sustainable materials for reliable infrastructure.",
       features: ["Precision Engineering", "Safety First Approach", "Sustainable Materials", "Quality Assurance"],
       timeline: "18-24 Months",
       cta: "Explore Designs"
