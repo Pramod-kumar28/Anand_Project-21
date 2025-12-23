@@ -25,7 +25,7 @@
 //             {/* Company Logo */}
 //             <div className="h-13 w-10 overflow-hidden mr-3">
 //               <img 
-//                 src="./images/logo.png" 
+//                 src="./images/logo.jpeg" 
 //                 alt="Anand Infra Logo" 
 //                 className="h-full w-full object-contain" 
 //               />
@@ -206,9 +206,9 @@ const Header = () => {
             <div className="flex flex-col items-start">
               <div className="flex items-center space-x-2">
                 <img
-                  src="./images/logo.png"
+                  src="./images/logo.jpeg"
                   alt="Anand Logo"
-                  className="w-8 h-10 md:w-10 md:h-12 object-contain"
+             className="w-10 h-10 md:w-14 md:h-14 object-contain"
                 />
                 <div className="flex flex-col items-start">
                   <h1 className="text-lg md:text-xl font-bold text-blue-800">

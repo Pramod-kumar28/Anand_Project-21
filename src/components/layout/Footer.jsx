@@ -87,21 +87,20 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* ... (your existing footer content remains the same) ... */}
             <div>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-orange-200 overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-300">
-                  <img
-                    src="./images/CEO.png"
-                    alt="Founder"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
+              <div className=" mb-6">
+               
                 <div className="flex flex-col items-start">
               <div className="flex items-center space-x-2">
-                <img
-                  src="./images/logo.png"
-                  alt="Anand Logo"
-                  className="w-8 h-10 md:w-10 md:h-12 object-contain pl-2"
-                />
+                <div className="relative">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg flex items-center justify-center">
+                  <img
+                    src="/images/logo.jpeg"
+                    alt="Anand Group Logo"
+                    className="w-full p-2"
+                  />
+                </div>
+              </div>
+               
                 <div className="flex flex-col items-start">
                   <h1 className="text-lg md:text-xl font-bold text-white-800">
                     <span className="text-orange-500">ANAND </span>INFRA
@@ -591,7 +590,7 @@ export default Footer
 //               <div className="flex flex-row items-start sm:items-center space-y-3 space-x-2 mb-4">
 //                 <div className="relative">
 //                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white shadow-lg flex items-center justify-center transition-transform duration-300 hover:scale-105">
-//                     <img src='/images/logo.png' alt="logo" className='w-full p-2 sm:p-4' />
+//                     <img src='/images/logo.jpeg' alt="logo" className='w-full p-2 sm:p-4' />
 //                   </div>
 //                 </div>
 //                 <div className="flex flex-row items-baseline space-x-1 sm:space-x-2">
