@@ -215,7 +215,7 @@ const HeroSlider = () => {
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      title: "Road Construction",
+      title: " Anand Infra: Complete Construction Specialists",
       subtitle: "Modern Highway Development",
       description: "State of the art road infrastructure with smart traffic management systems and durable materials for long lasting performance.",
       features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design", "Advanced Engineering"],
@@ -413,12 +413,7 @@ const HeroSlider = () => {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Brand Tagline */}
-                <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-gray-200">
-                  <p className="text-xs md:text-sm text-gray-500 text-center lg:text-left leading-tight">
-                    <span className="text-orange-500 font-semibold">"Building Tomorrow's Infrastructure Today"</span> - Quality, Reliability, Excellence
-                  </p>
-                </div>
+                
               </div>
             </div>
 
