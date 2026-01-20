@@ -1,211 +1,6 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const HeroSlider = ({ slides, currentSlide, goToSlide }) => (
-//   <section className="hero-slider">
-//     {slides.map((slide, index) => (
-//       <div 
-//         key={slide.id}
-//         className={`slide ${index === currentSlide ? 'active' : ''}`}
-//         style={{ backgroundImage: `url(${slide.background})` }}
-//       >
-//         <div className="slide-content">
-//           <h1 className="text-3xl md:text-4xl font-bold mb-6 fade-in">{slide.title}</h1>
-//           <p className="text-xl md:text-2xl mb-10 fade-in">{slide.subtitle}</p>
-//           <div className="flex flex-col sm:flex-row justify-center gap-4">
-//             {slide.buttons.map((button, btnIndex) => (
-//               <Link 
-//                 key={btnIndex}
-//                 to={button.link}
-//                 className={`${
-//                   button.type === 'primary' 
-//                     ? 'bg-amber-500 hover:bg-amber-600 text-white' 
-//                     : 'bg-transparent border-2 border-white hover:bg-white hover:text-navy-blue text-white'
-//                 } font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 fade-in`}
-//               >
-//                 {button.text}
-//               </Link>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     ))}
-    
-//     {/* Slide Indicators */}
-//     <div className="slide-indicators">
-//       {slides.map((_, index) => (
-//         <div 
-//           key={index}
-//           className={`indicator ${index === currentSlide ? 'active' : ''}`}
-//           onClick={() => goToSlide(index)}
-//         ></div>
-//       ))}
-//     </div>
-//   </section>
-// );
-
-// export default HeroSlider;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-
-// const HeroSlider = ({ slides, currentSlide, goToSlide, autoPlay = true, interval = 5000 }) => {
-//   const [isAnimating, setIsAnimating] = useState(false);
-
-//   useEffect(() => {
-//     if (autoPlay) {
-//       const timer = setInterval(() => {
-//         handleNextSlide();
-//       }, interval);
-//       return () => clearInterval(timer);
-//     }
-//   }, [currentSlide, autoPlay, interval]);
-
-//   const handleNextSlide = () => {
-//     setIsAnimating(true);
-//     setTimeout(() => {
-//       goToSlide((currentSlide + 1) % slides.length);
-//       setIsAnimating(false);
-//     }, 500);
-//   };
-
-//   const handlePrevSlide = () => {
-//     setIsAnimating(true);
-//     setTimeout(() => {
-//       goToSlide((currentSlide - 1 + slides.length) % slides.length);
-//       setIsAnimating(false);
-//     }, 500);
-//   };
-
-//   const handleIndicatorClick = (index) => {
-//     if (index !== currentSlide) {
-//       setIsAnimating(true);
-//       setTimeout(() => {
-//         goToSlide(index);
-//         setIsAnimating(false);
-//       }, 500);
-//     }
-//   };
-
-//   return (
-//     <section className="relative w-full h-screen overflow-hidden">
-//       <div className="relative w-full h-full">
-//         {slides.map((slide, index) => (
-//           <div 
-//             key={slide.id}
-//             className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-700 ease-in-out flex items-center justify-center
-//               ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
-//             `}
-//             style={{ backgroundImage: `url(${slide.background})` }}
-//           >
-//             {/* Gradient overlay */}
-//             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40"></div>
-            
-//             <div className="relative z-10 text-center text-white max-w-4xl px-6">
-//               {/* Animated title */}
-//               <h1 className={`text-4xl md:text-6xl font-bold mb-6 transition-all duration-700 delay-200 ${
-//                 index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-//               }`}>
-//                 {slide.title}
-//               </h1>
-              
-//               {/* Animated subtitle */}
-//               <p className={`text-xl md:text-2xl mb-10 transition-all duration-700 delay-300 ${
-//                 index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-//               }`}>
-//                 {slide.subtitle}
-//               </p>
-              
-//               {/* Animated buttons */}
-//               <div className="flex flex-col sm:flex-row justify-center gap-4">
-//                 {slide.buttons.map((button, btnIndex) => (
-//                   <Link 
-//                     key={btnIndex}
-//                     to={button.link}
-//                     className={`relative px-8 py-4 font-semibold rounded-full overflow-hidden transition-all duration-500 group ${
-//                       index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-//                     } ${
-//                       button.type === 'primary' 
-//                         ? 'bg-amber-500 hover:bg-amber-600 text-white border-2 border-transparent' 
-//                         : 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900'
-//                     } transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl`}
-//                     style={{
-//                       transitionDelay: index === currentSlide ? `${400 + btnIndex * 100}ms` : '0ms'
-//                     }}
-//                   >
-//                     <span className="relative z-10">{button.text}</span>
-//                     {/* Shine effect */}
-//                     <div className="absolute inset-0 -left-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-all duration-700 group-hover:left-full"></div>
-//                   </Link>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Navigation Arrows */}
-//       <button 
-//         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white text-2xl transition-all duration-300 hover:bg-white/20 hover:scale-110 z-20"
-//         onClick={handlePrevSlide}
-//       >
-//         ‹
-//       </button>
-      
-//       <button 
-//         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white text-2xl transition-all duration-300 hover:bg-white/20 hover:scale-110 z-20"
-//         onClick={handleNextSlide}
-//       >
-//         ›
-//       </button>
-
-//       {/* Slide Indicators */}
-//       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-//         {slides.map((_, index) => (
-//           <button 
-//             key={index}
-//             className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
-//               index === currentSlide 
-//                 ? 'border-amber-500 bg-amber-500 scale-125' 
-//                 : 'border-white/50 bg-transparent hover:border-white'
-//             } hover:scale-110`}
-//             onClick={() => handleIndicatorClick(index)}
-//           />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default HeroSlider;
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -219,7 +14,7 @@ const HeroSlider = () => {
       subtitle: "Modern Highway Development",
       description: "State of the art road infrastructure with smart traffic management systems and durable materials for long lasting performance.",
       features: ["Smart Traffic Management", "Durable Materials", "Eco-friendly Design", "Advanced Engineering"],
-      timeline: "12-18 Months",
+
       cta: "View services"
     },
     {
@@ -229,8 +24,8 @@ const HeroSlider = () => {
       subtitle: "Advanced Structural Solutions",
       description: "Precision engineered bridges with safety first approach and sustainable materials for reliable infrastructure.",
       features: ["Precision Engineering", "Safety First Approach", "Sustainable Materials", "Quality Assurance"],
-      timeline: "18-24 Months",
-      cta: "Explore Designs"
+
+      cta: "View Services"
     },
     {
       id: 3,
@@ -239,8 +34,8 @@ const HeroSlider = () => {
       subtitle: "Smart City Development",
       description: "Comprehensive urban development with integrated utilities and digital infrastructure for modern cities.",
       features: ["Integrated Utilities", "Green Spaces", "Digital Infrastructure", "Smart Solutions"],
-      timeline: "24-36 Months",
-      cta: "See Plans"
+
+      cta: "View Services"
     },
     {
       id: 4,
@@ -249,8 +44,8 @@ const HeroSlider = () => {
       subtitle: "Community Development Projects",
       description: "Sustainable public infrastructure projects focusing on environmental care and community welfare.",
       features: ["Water Management", "Public Facilities", "Environmental Care", "Community Focus"],
-      timeline: "12-24 Months",
-      cta: "Learn More"
+
+      cta: "View Services"
     }
   ];
 
@@ -294,13 +89,13 @@ const HeroSlider = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Hero Carousel Container */}
-          <div 
+          <div
             className="relative bg-white rounded-2xl shadow-2xl overflow-hidden"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
             <div className="flex flex-col lg:flex-row min-h-[400px] md:min-h-[500px]">
-              
+
               {/* Image Slider */}
               <div className="relative h-48 md:h-64 lg:h-auto lg:w-1/2 overflow-hidden">
                 <AnimatePresence mode="wait">
@@ -344,9 +139,8 @@ const HeroSlider = () => {
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentSlide ? 'bg-orange-500' : 'bg-white/60'
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-orange-500' : 'bg-white/60'
+                        }`}
                     />
                   ))}
                 </div>
@@ -373,12 +167,12 @@ const HeroSlider = () => {
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-800 mb-2 md:mb-3 leading-tight">
                       {infrastructureSlides[currentSlide].title}
                     </h1>
-                    
+
                     {/* Subtitle */}
                     <p className="text-base md:text-lg text-orange-600 font-semibold mb-2 md:mb-3 leading-tight">
                       {infrastructureSlides[currentSlide].subtitle}
                     </p>
-                    
+
                     {/* Description */}
                     <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
                       {infrastructureSlides[currentSlide].description}
@@ -396,28 +190,27 @@ const HeroSlider = () => {
 
                     {/* Timeline & CTA Container */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6">
-                      {/* Timeline */}
-                      <div className="bg-blue-50 px-4 py-3 rounded-xl border border-blue-200 min-w-[140px]">
-                        <div className="text-xs md:text-sm text-blue-700 font-medium">Timeline</div>
-                        <div className="text-base md:text-lg font-bold text-blue-800 mt-1">
-                          {infrastructureSlides[currentSlide].timeline}
-                        </div>
-                      </div>
+
 
                       {/* CTA Button */}
-                      <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base flex items-center gap-2 group w-full sm:w-auto justify-center">
+                      <Link
+                        to="/services"
+                        className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base flex items-center gap-2 group w-full sm:w-auto justify-center"
+                      >
                         <span>{infrastructureSlides[currentSlide].cta}</span>
                         <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                      </button>
-                    </div>
+                      </Link>
+                      </div>
+
+
                   </motion.div>
                 </AnimatePresence>
 
-                
+
               </div>
             </div>
 
-           
+
           </div>
         </div>
       </div>
